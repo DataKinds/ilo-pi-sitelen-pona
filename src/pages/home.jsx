@@ -144,13 +144,19 @@ const TOKI_TABLE = {
   "APEJA": String.fromCodePoint(0xF19A1),
   "MAJUNA": String.fromCodePoint(0xF19A2),
   "POWE": String.fromCodePoint(0xF19A3),
-  // "[": String.fromCodePoint(0xF1993),
-  // "{": String.fromCodePoint(0xF1990),
-  // "}": String.fromCodePoint(0xF1991)
   "[": "BEGIN_LONG_PI",
   "]": "END_LONG_PI",
   "{": "BEGIN_PROPER_NOUN",
   "}": "END_PROPER_NOUN"
+}
+
+const LEX_TABLE = {
+  "BEGIN_LONG_PI": String.fromCodePoint(0xF1993),
+  "IN_LONG_PI": String.fromCodePoint(0xF1994),
+  "END_LONG_PI": "",
+  "BEGIN_PROPER_NOUN": String.fromCodePoint(0xF1990),
+  "IN_PROPER_NOUN": String.fromCodePoint(0xF1992),
+  "END_PROPER_NOUN": String.fromCodePoint(0xF1991),
 }
 
 export default function IloPiSitelenPona() {
@@ -164,6 +170,11 @@ export default function IloPiSitelenPona() {
     let inLongPi = false;
     let inProperNoun = false;
     for (const lex of lexes) {
+      if (inLongPi) { 
+        if (out[out.length - 1] == )
+        out.push(LEX_TABLE.IN_LONG_PI) 
+      }
+      if (inProperNoun) { out.push(LEX_TABLE.IN_PROPER_NOUN) }
       if (lex === 'BEGIN_LONG_PI') {
         inLongPi = true;
       } else if (lex === 'END_LONG_PI') {
@@ -172,10 +183,9 @@ export default function IloPiSitelenPona() {
         inProperNoun = true;
       } else if (lex === 'END_PROPER_NOUN') {
         inProperNoun = false;
-      } else {
-        
       }
-
+      
+      out.push(LEX_TABLE[lex] === undefined ? lex : LEX_TABLE[lex])
     }
     return out;
   }, [tokens])
