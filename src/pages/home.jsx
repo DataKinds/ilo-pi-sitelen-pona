@@ -148,7 +148,8 @@ const TOKI_TABLE = {
   "]": "END_LONG_PI",
   "{": "BEGIN_PROPER_NOUN",
   "}": "END_PROPER_NOUN",
-  "~": String.fromCodePoint(0xF1996)
+  "~": String.fromCodePoint(0xF1996),
+  "`": String.fromCodePoint(0xF1995)
 }
 
 const LEX_TABLE = {
@@ -214,6 +215,11 @@ export default function IloPiSitelenPona() {
             You may use <kbd>&#91;</kbd> and <kbd>&#93;</kbd> to insert a long pi.
           </li>
         </ul>
+        <ul>
+          <li>
+            You may insert a stacking joiner with <kbd>`</kbd> and a scaling joiner with <kbd>~</kbd>. The current font doesn't seem to do anything with them, but in the future fun things are possible.
+          </li>
+        </ul>
       </div>
       <div class="row">
         <h3 style={{marginRight: 2 + 'em'}}>Write your toki pona here:</h3>
@@ -222,15 +228,20 @@ export default function IloPiSitelenPona() {
       <textarea class="input" value={input} onChange={ev => setInput(ev.target.value)}></textarea>
       <h3>Copy your sitelen pona from here:</h3>
       <p class="output">{output}</p>
-      <p class="credits">
-        Font from <a href="https://www.kreativekorp.com/software/fonts/fairfaxhd.shtml">https://www.kreativekorp.com/software/fonts/fairfaxhd.shtml</a>.
-      </p>
-      <p class="credits">
-        Unicode proposal at <a href="https://www.kreativekorp.com/ucsur/charts/sitelen.html">https://www.kreativekorp.com/ucsur/charts/sitelen.html</a>, tracked at <a href="https://www.kreativekorp.com/ucsur/">https://www.kreativekorp.com/ucsur/</a>.
-      </p>
-      <p class="credits">
-        Read more about this project (including installation instructions for all your apps) in the guide at <a href="https://github.com/Id405/sitelen-pona-ucsur-guide/blob/main/README.md">https://github.com/Id405/sitelen-pona-ucsur-guide/blob/main/README.md</a>.
-      </p>
+      <footer>
+        <p class="credits">
+          Font from <a href="https://www.kreativekorp.com/software/fonts/fairfaxhd.shtml">https://www.kreativekorp.com/software/fonts/fairfaxhd.shtml</a>.
+        </p>
+        <p class="credits">
+          Unicode proposal at <a href="https://www.kreativekorp.com/ucsur/charts/sitelen.html">https://www.kreativekorp.com/ucsur/charts/sitelen.html</a>, tracked at <a href="https://www.kreativekorp.com/ucsur/">https://www.kreativekorp.com/ucsur/</a>.
+        </p>
+        <p class="credits">
+          Read more about this project (including installation instructions for all your apps) in the guide at <a href="https://github.com/Id405/sitelen-pona-ucsur-guide/blob/main/README.md">https://github.com/Id405/sitelen-pona-ucsur-guide/blob/main/README.md</a>.
+        </p>
+        <p class="credits">
+          Read my blog :3 <a href="https://datakinds.github.io">https://datakinds.github.io</a>
+        </p>
+      </footer>
     </>
   );
 }
