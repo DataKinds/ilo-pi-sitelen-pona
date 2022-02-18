@@ -24,6 +24,14 @@ video {
   max-width: 100%;
 }
 
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
 
 @font-face {
   font-family: "Fairfax HD";
