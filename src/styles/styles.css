@@ -23,3 +23,13 @@ video {
   height: auto;
   max-width: 100%;
 }
+
+.input {
+  line-height: 2em;
+  padding: 1em 1em 1em 1em;
+  border-style: dotted;
+  border-width: thick;
+  border-color: black;
+  font-style: 
+}
+
