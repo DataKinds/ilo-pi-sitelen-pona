@@ -31,9 +31,19 @@ h1, h2 {
 .row {
   display: flex;
 }
-
+.row.justify-between {
+  justify-content: space-between
+}
 .col {
   flex: 1 0 0%;
+}
+
+.col-grow {
+  flex: 2 0 0%;
+}
+.col-auto {
+  flex: 0 0 auto;
+  width: auto;
 }
 
 
@@ -81,4 +91,9 @@ footer {
 }
 .credits > a:visited {
   color: #000088;
+}
+
+.copy-button {
+  margin-left: auto;
+  padding: 0.5em;
 }

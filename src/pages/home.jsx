@@ -199,6 +199,15 @@ export default function IloPiSitelenPona() {
   }, [tokens])
   
   const output = useMemo(() => outputList.join("").toLowerCase(), [outputList])
+  
+  const [showCopiedPopup, setShowCopiedPopup] = useState(false)
+  const copyToClipboard = useCallback(() => {
+    navigator.clipboard.writeText(output).then(function() {
+      setShowCopiedPopup(true)
+    }, function(err) {
+      alert("Your browser does not support the Clipboard API.");
+    });
+  }, [output, setShowCopiedPopup])
 
   return (
     <>
@@ -227,9 +236,23 @@ export default function IloPiSitelenPona() {
       </div>
       <textarea class="input" value={input} onChange={ev => setInput(ev.target.value)}></textarea>
       <h3>Copy your sitelen pona from here:</h3>
-      <p class="output">
-        {output}
-        <button style={{float: 'right'}}>Copy</button>
+      {showCopiedPopup ? () : (
+        <p class="output row justify-between">
+        <div class="col-grow">
+          {output}
+        </div>
+        <div class="col-auto">
+          <button class="copy-button" onClick={copyToClipboard}>Copy to clipboard!</button>
+        </div>
+        </p>
+      )}
+      <p class="output row justify-between">
+        <div class="col-grow">
+          {output}
+        </div>
+        <div class="col-auto">
+          <button class="copy-button" onClick={copyToClipboard}>Copy to clipboard!</button>
+        </div>
       </p>
       <footer>
         <p class="credits">
