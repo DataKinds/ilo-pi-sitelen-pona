@@ -147,7 +147,8 @@ const TOKI_TABLE = {
   "[": "BEGIN_LONG_PI",
   "]": "END_LONG_PI",
   "{": "BEGIN_PROPER_NOUN",
-  "}": "END_PROPER_NOUN"
+  "}": "END_PROPER_NOUN",
+  "~": String.fromCodePoint(0xF1996)
 }
 
 const LEX_TABLE = {
@@ -164,17 +165,23 @@ export default function IloPiSitelenPona() {
   
   const tokens = useMemo(() => input.split(/(\W|\[|\]|\{|\})/).filter(word => word.trim().length > 0).map(word => word.toUpperCase()), [input])
   
-  const output = useMemo(() => {
+  const outputList = useMemo(() => {
     const lexes = tokens.map(tok => TOKI_TABLE[tok] || tok);
     const out = [];
     let inLongPi = false;
     let inProperNoun = false;
-    for (const lex of lexes) {
+    for (const lexId in lexes) {
+      const lex = lexes[lexId]
       if (inLongPi) { 
-        if (out[out.length - 1] == )
-        out.push(LEX_TABLE.IN_LONG_PI) 
+        if (lexes[lexId - 1] !== 'BEGIN_LONG_PI') {
+          out.push(LEX_TABLE.IN_LONG_PI) 
+        }
       }
-      if (inProperNoun) { out.push(LEX_TABLE.IN_PROPER_NOUN) }
+      if (inProperNoun) { 
+        if (lexes[lexId - 1] !== 'BEGIN_PROPER_NOUN') {
+          out.push(LEX_TABLE.IN_PROPER_NOUN)
+        }
+      }
       if (lex === 'BEGIN_LONG_PI') {
         inLongPi = true;
       } else if (lex === 'END_LONG_PI') {
@@ -189,6 +196,8 @@ export default function IloPiSitelenPona() {
     }
     return out;
   }, [tokens])
+  
+  const output = useMemo(() => outputList.join("").toLowerCase(), [outputList])
 
   return (
     <>
@@ -220,7 +229,7 @@ export default function IloPiSitelenPona() {
         Unicode proposal at <a href="https://www.kreativekorp.com/ucsur/charts/sitelen.html">https://www.kreativekorp.com/ucsur/charts/sitelen.html</a>, tracked at <a href="https://www.kreativekorp.com/ucsur/">https://www.kreativekorp.com/ucsur/</a>.
       </p>
       <p class="credits">
-        Other fonts at <a href="https://github.com/Id405/sitelen-pona-ucsur-guide/blob/main/README.md#fonts">https://github.com/Id405/sitelen-pona-ucsur-guide/blob/main/README.md#fonts</a>
+        Read more about this project (including installation instructions for all your apps) in the guide at <a href="https://github.com/Id405/sitelen-pona-ucsur-guide/blob/main/README.md">https://github.com/Id405/sitelen-pona-ucsur-guide/blob/main/README.md</a>.
       </p>
     </>
   );
