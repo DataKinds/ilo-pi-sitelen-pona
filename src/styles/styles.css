@@ -70,6 +70,14 @@ h1, h2 {
   font-weight: bolder;
   font-size: 18pt;
 }
+.output.copied-popup {
+  background-color: #111199;
+  color: white;
+  border-color: white;
+  font-family: "Fairfax HD", monospace;
+  font-weight: bolder;
+  font-size: 18pt;
+}
 
 footer {
   margin-top: 100px;

@@ -203,7 +203,8 @@ export default function IloPiSitelenPona() {
   const [showCopiedPopup, setShowCopiedPopup] = useState(false)
   const copyToClipboard = useCallback(() => {
     navigator.clipboard.writeText(output).then(function() {
-      setShowCopiedPopup(true)
+      setShowCopiedPopup(true);
+      setTimeout(() => setShowCopiedPopup(false), 1500);
     }, function(err) {
       alert("Your browser does not support the Clipboard API.");
     });
@@ -236,24 +237,25 @@ export default function IloPiSitelenPona() {
       </div>
       <textarea class="input" value={input} onChange={ev => setInput(ev.target.value)}></textarea>
       <h3>Copy your sitelen pona from here:</h3>
-      {showCopiedPopup ? () : (
+      {showCopiedPopup ? (
+        <p class="output row justify-between copied-popup">
+          <div class="col-grow">
+            Copied!
+          </div>
+          <div class="col-auto">
+            <button class="copy-button" onClick={copyToClipboard}>Copy to clipboard!</button>
+          </div>
+        </p>
+      ) : (
         <p class="output row justify-between">
-        <div class="col-grow">
-          {output}
-        </div>
-        <div class="col-auto">
-          <button class="copy-button" onClick={copyToClipboard}>Copy to clipboard!</button>
-        </div>
+          <div class="col-grow">
+            {output}
+          </div>
+          <div class="col-auto">
+            <button class="copy-button" onClick={copyToClipboard}>Copy to clipboard!</button>
+          </div>
         </p>
       )}
-      <p class="output row justify-between">
-        <div class="col-grow">
-          {output}
-        </div>
-        <div class="col-auto">
-          <button class="copy-button" onClick={copyToClipboard}>Copy to clipboard!</button>
-        </div>
-      </p>
       <footer>
         <p class="credits">
           Font from <a href="https://www.kreativekorp.com/software/fonts/fairfaxhd.shtml">https://www.kreativekorp.com/software/fonts/fairfaxhd.shtml</a>.
