@@ -24,6 +24,10 @@ video {
   max-width: 100%;
 }
 
+h1, h2 {
+  color: #111199;
+}
+
 .row {
   display: flex;
 }
@@ -40,7 +44,7 @@ video {
   padding: 1em 1em 1em 1em;
   border-style: dotted;
   border-width: thick;
-  border-color: black;
+  border-color: #111199;
   font-family: "Fairfax HD", monospace;
   font-weight: bolder;
   font-size: 18pt;
@@ -51,7 +55,7 @@ video {
   padding: 1em 1em 1em 1em;
   border-style: dotted;
   border-width: thick;
-  border-color: black;
+  border-color: #111199;
   font-family: "Fairfax HD", monospace;
   font-weight: bolder;
   font-size: 18pt;
@@ -59,5 +63,22 @@ video {
 
 footer {
   margin-top: 100px;
-  
+  border-top-style: solid;
+  border-top-width: thick;
+  border-top-color: #111199;
+}
+
+.credits {
+  text-align: center;
+  font-style: italic;
+  padding-bottom: 16px;
+  border-bottom-style: dashed;
+  border-bottom-color: #111199;
+  border-bottom-width: 0.15em;
+}
+.credits > a {
+  color: #3333BB;
+}
+.credits > a:visited {
+  color: #000088;
 }

@@ -227,7 +227,10 @@ export default function IloPiSitelenPona() {
       </div>
       <textarea class="input" value={input} onChange={ev => setInput(ev.target.value)}></textarea>
       <h3>Copy your sitelen pona from here:</h3>
-      <p class="output">{output}</p>
+      <p class="output">
+        {output}
+        <button style={{float: 'right'}}>Copy</button>
+      </p>
       <footer>
         <p class="credits">
           Font from <a href="https://www.kreativekorp.com/software/fonts/fairfaxhd.shtml">https://www.kreativekorp.com/software/fonts/fairfaxhd.shtml</a>.
@@ -239,7 +242,7 @@ export default function IloPiSitelenPona() {
           Read more about this project (including installation instructions for all your apps) in the guide at <a href="https://github.com/Id405/sitelen-pona-ucsur-guide/blob/main/README.md">https://github.com/Id405/sitelen-pona-ucsur-guide/blob/main/README.md</a>.
         </p>
         <p class="credits">
-          Read my blog :3 <a href="https://datakinds.github.io">https://datakinds.github.io</a>
+          FOLLOW ME ON TWITTER <a href="https://twitter.com/DataKinds">@DataKinds</a> and read my blog :3 <a href="https://datakinds.github.io">https://datakinds.github.io</a>
         </p>
       </footer>
     </>
