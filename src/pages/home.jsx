@@ -236,7 +236,10 @@ export default function IloPiSitelenPona() {
         <h3>o sitelen e toki lon toki pona:</h3>
       </div>
       <textarea class="input" value={input} onChange={ev => setInput(ev.target.value)}></textarea>
-      <h3>Copy your sitelen pona from here:</h3>
+      <div class="row">
+        <h3 style={{marginRight: 2 + 'em'}}>Copy your sitelen pona from here:</h3>
+        <h3>pali anpa li pana e sitelen pona sina:</h3>
+      </div>
       {showCopiedPopup ? (
         <p class="output row justify-between copied-popup">
           <div class="col-grow">
