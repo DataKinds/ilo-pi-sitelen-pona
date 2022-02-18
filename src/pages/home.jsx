@@ -1,11 +1,16 @@
 import * as React from "react";
 import { useState, useCallback } from 'react';
 
+// Sourced from: https://www.kreativekorp.com/ucsur/charts/sitelen.html
+const TOKI_TABLE = {
+  
+}
+
 export default function IloPiSitelenPona() {
   const [input, setInput] = useState("toki a!");
   
   const tokenize = useCallback((tpString) => {
-    const toks = tpString.split(/(\d)/)
+    const toks = tpString.split(/(\b|\[|\]|\{|\})/).filter(word => word.trim().length > 0).map(word => word.toLowerCase())
     return toks
   }, [])
 
