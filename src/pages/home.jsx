@@ -144,17 +144,41 @@ const TOKI_TABLE = {
   "APEJA": String.fromCodePoint(0xF19A1),
   "MAJUNA": String.fromCodePoint(0xF19A2),
   "POWE": String.fromCodePoint(0xF19A3),
-  "[": String.fromCodePoint(0xF1993),
-  "{": String.fromCodePoint(0xF1990),
-  "}": String.fromCodePoint(0xF1991)
+  // "[": String.fromCodePoint(0xF1993),
+  // "{": String.fromCodePoint(0xF1990),
+  // "}": String.fromCodePoint(0xF1991)
+  "[": "BEGIN_LONG_PI",
+  "]": "END_LONG_PI",
+  "{": "BEGIN_PROPER_NOUN",
+  "}": "END_PROPER_NOUN"
 }
 
 export default function IloPiSitelenPona() {
   const [input, setInput] = useState("toki a!");
   
-  const tokens = useMemo(() => input.split(/(\b|\[|\]|\{|\})/).filter(word => word.trim().length > 0).map(word => word.toUpperCase()), [input])
+  const tokens = useMemo(() => input.split(/(\W|\[|\]|\{|\})/).filter(word => word.trim().length > 0).map(word => word.toUpperCase()), [input])
   
-  const output = useMemo(() => tokens.map(tok => TOKI_TABLE[tok] || tok), [tokens])
+  const output = useMemo(() => {
+    const lexes = tokens.map(tok => TOKI_TABLE[tok] || tok);
+    const out = [];
+    let inLongPi = false;
+    let inProperNoun = false;
+    for (const lex of lexes) {
+      if (lex === 'BEGIN_LONG_PI') {
+        inLongPi = true;
+      } else if (lex === 'END_LONG_PI') {
+        inLongPi = false;
+      } else if (lex === 'BEGIN_PROPER_NOUN') {
+        inProperNoun = true;
+      } else if (lex === 'END_PROPER_NOUN') {
+        inProperNoun = false;
+      } else {
+        
+      }
+
+    }
+    return out;
+  }, [tokens])
 
   return (
     <>
@@ -163,6 +187,12 @@ export default function IloPiSitelenPona() {
         A few instructions // kepeken nasin lili
         <ul>
           <li>
+            You may use <kbd>&#123;</kbd> and <kbd>&#125;</kbd> to insert a cartouche for writing proper nouns.
+          </li>
+        </ul>
+        <ul>
+          <li>
+            You may use <kbd>&#91;</kbd> and <kbd>&#93;</kbd> to insert a long pi.
           </li>
         </ul>
       </div>
