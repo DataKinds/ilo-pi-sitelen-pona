@@ -33,14 +33,6 @@ video {
 }
 
 
-@font-face {
-  font-family: "Fairfax HD";
-  src: url("https://cdn.glitch.global/0441be0c-8bd8-43aa-a278-202942470c84/FairfaxHD.woff2?v=1645159868773") format("woff2")
-    url("https://cdn.glitch.global/0441be0c-8bd8-43aa-a278-202942470c84/FairfaxHD.woff?v=1645159863391") format("woff"),
-    url("https://cdn.glitch.global/0441be0c-8bd8-43aa-a278-202942470c84/FairfaxHD.ttf?v=1645159050920") format("ttf");
-}
-
-
 .input {
   width: 100%;
   resize: none;
@@ -60,7 +52,7 @@ video {
   border-style: dotted;
   border-width: thick;
   border-color: black;
-  font-family: "Fairfax HD";
+  font-family: "Fairfax HD", monospace;
   font-weight: bolder;
   font-size: 18pt;
 }

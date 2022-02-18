@@ -4,6 +4,7 @@ import React from "react";
 import Home from "./pages/home.jsx";
 
 // Import and apply CSS stylesheet
+import "./styles/font.css";
 import "./styles/styles.css";
 
 export default function App() {
