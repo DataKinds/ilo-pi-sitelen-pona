@@ -7,6 +7,7 @@ const TOKI_TABLE = {
   "AKESI": String.fromCodePoint(0xF1901),
   "ALA": String.fromCodePoint(0xF1902),
   "ALASA": String.fromCodePoint(0xF1903),
+  "ALI": String.fromCodePoint(0xF1904),
   "ALE": String.fromCodePoint(0xF1904),
   "ANPA": String.fromCodePoint(0xF1905),
   "ANTE": String.fromCodePoint(0xF1906),
