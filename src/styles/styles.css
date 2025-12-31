@@ -69,6 +69,8 @@ h1, h2 {
   font-family: "Fairfax HD", monospace;
   font-weight: bolder;
   font-size: 18pt;
+  white-space: pre-wrap;
+  overflow-x: scroll;
 }
 .output.copied-popup {
   background-color: #111199;
