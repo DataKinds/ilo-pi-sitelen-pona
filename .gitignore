@@ -1,1 +1,14 @@
 build
+.cache
+.config
+.data
+.firebase
+.pm2
+.snowpack
+.cache/**
+.config/**
+.data/**
+.firebase/**
+.pm2/**
+.snowpack/**
+node_modules/**

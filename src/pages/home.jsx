@@ -215,7 +215,7 @@ export default function IloPiSitelenPona() {
     <>
       <h1 className="title">sina ken pali e sitelen pona</h1>
       <div>
-        A few instructions // kepeken nasin lili
+        A few instructions // nasin kepeken lili
         <ul>
           <li>
             You may use <kbd>&#123;</kbd> and <kbd>&#125;</kbd> to insert a cartouche for writing proper nouns.
@@ -234,12 +234,12 @@ export default function IloPiSitelenPona() {
       </div>
       <div class="row">
         <h3 style={{marginRight: 2 + 'em'}}>Write your toki pona here:</h3>
-        <h3>o sitelen e toki lon toki pona:</h3>
+        <h3>o sitelen e toki kepeken toki pona:</h3>
       </div>
       <textarea class="input" value={input} onChange={ev => setInput(ev.target.value)}></textarea>
       <div class="row">
         <h3 style={{marginRight: 2 + 'em'}}>Copy your sitelen pona from here:</h3>
-        <h3>pali anpa li pana e sitelen pona sina:</h3>
+        <h3>poki anpa li pana e sitelen pona sina:</h3>
       </div>
       {showCopiedPopup ? (
         <p class="output row justify-between copied-popup">
